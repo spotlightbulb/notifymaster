@@ -31,6 +31,8 @@ channelList = ['#howtohack']
 owner = "eve"
 # Radio link
 radioLink = "https://radio.zempirians.com"
+# Github repo bot source code link
+githubBot = "https://github.com/spotlightbulb/notifymaster/"
 # Bot help command
 botList = ['+[Z]NotifyMaster','Contains basic help command and notifies bot owners when their bot is down','help'
 ,'+[Z]Citadel','Searches for the databases in which your string is found','!email string'
@@ -49,7 +51,7 @@ rules = ['[Z] represents a bot, +[Z] represents an official bot and & represents
 ]
 helpList = ['help','Displays the help command of bot and the other general bot commands.'
 ,'radio','Returns the radio link.'
-,'die','Kills the bot, if your the owner.'
+,'source','Returns the link to the source code of the bot.'
 ]
 
 def rawSend(data):
@@ -106,6 +108,8 @@ def channelRequests(channel, data):
 				ircMessage("Command: "+helpList[z]+", Function: "+helpList[z+1], user)
 		elif msgAnalyze("radio", data):
 			ircMessage("Tune in here: "+radioLink+"!", user)
+		elif msgAnalyze("source", data):
+			ircMessage("Find it here: "+githubBot+"!", user)
 		#elif user == owner:
 			#finalArgument = re.match(r"\w+",str(str(data).split()[len(data.split())-1])).group()
 			#if finalArgument == "die":
